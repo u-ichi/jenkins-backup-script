@@ -26,12 +26,17 @@ rm -rf $ARC_DIR
 mkdir $ARC_DIR
 mkdir $ARC_DIR/plugins
 mkdir $ARC_DIR/jobs
+mkdir $ARC_DIR/config
 
 echo "cp $JENKINS_HOME/*.xml $ARC_DIR"
 cp $JENKINS_HOME/*.xml $ARC_DIR
 
 echo "cp $JENKINS_HOME/plugins/*.jpi $ARC_DIR/plugins"
 cp $JENKINS_HOME/plugins/*.jpi $ARC_DIR/plugins
+
+echo "cp $JENKINS_HOME/config/ $ARC_DIR/config"
+cp -R $JENKINS_HOME/config/* $ARC_DIR/config
+
 
 cd $JENKINS_HOME/jobs/
 for job_name in `ls -d *`
